@@ -9,7 +9,7 @@ exports.up = async (knex) => {
     .createTable('items', (items) =>{
       items.increments('item_id')
       items.string('name').notNullable()
-      items.string('category')
+      items.string('category').notNullable()
       items.float('price').notNullable()
       items.string('location').notNullable()
       items.string('description')

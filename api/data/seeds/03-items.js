@@ -9,5 +9,5 @@ exports.seed = function (knex) {
         description: 'thing does stuff',
         user_id: 0,
       },
-    ]);
-  };
+    ])
+  }
