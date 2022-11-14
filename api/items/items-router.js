@@ -21,10 +21,29 @@ router.get("/:id", restricted, validateItemId, async (req, res, next) => {
   }
 })
 
-router.post("/", restricted, validateItem, async (req, res, next) => {
-  try {
-    const newItem = await Items.insertItem(req.item)
-    res.status(201).json(newItem)
+router.post("/", restricted, validateItem, 
+  async (req, res, next) => {
+    try {
+      const { 
+        name,
+        category,
+        price,
+        location,
+        description,
+        url,
+        user_id,
+      } = req.body;
+
+      const newItem = await Items.insertItem({ 
+        name,
+        category,
+        price,
+        location,
+        description,
+        url,
+        user_id,
+      })
+      res.status(201).json(newItem)
   } catch (err) {
     next(err)
   }

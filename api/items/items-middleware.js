@@ -1,21 +1,15 @@
-// const Users = require("../users/users-model")
 const Items = require('./items-model')
 
 const validateItem = async (req, res, next) => {
-  const { name, category, price, location, user_id} = req.body
+  const { name, category, price, location } = req.body
   if (
     !name ||
-    !name.trim() ||
     !category ||
-    !category.trim() ||
     !location ||
-    !location.trim() ||
-    !price ||
-    !user_id
+    !price
   ) {
-    next({ status: 400, message: "name, category, price, location, and user_id required" })
+    next({ status: 400, message: "name, category, price, location required" })
   }
-  req.item = req.body
   next()
 }
 

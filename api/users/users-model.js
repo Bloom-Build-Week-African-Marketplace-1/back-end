@@ -11,7 +11,11 @@ function findById(id) {
 }
 
 async function insertUser(user) {
-    const [newUserObject] = await db('users').insert(user, ['user_id', 'username', 'password'])
+    const [newUserObject] = await db('users')
+        .insert(user, [
+            'user_id', 
+            'username', 
+            'password'])
     return newUserObject
 }
 
